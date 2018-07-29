@@ -12,8 +12,6 @@ class createStoreController {
 const createStore = {
   controller: createStoreController,
   template: `
-        <h2>Create a new information store</h2>
-        <hr>
         <p>Form goes here. But before that:
         </p>
           <ul>
