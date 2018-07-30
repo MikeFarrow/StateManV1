@@ -1,10 +1,16 @@
 class createStoreController {
-  constructor() {
-    console.log("constructor createStoreController: ");
+  constructor(DEBUG) {
+    'ngInject';
+    this.DEBUG = DEBUG;
+    if (this.DEBUG) console.log("constructor createStoreController: ");
   }
 
   $onInit() {
-    console.log("$onInit createStoreController: ");
+    if (this.DEBUG) console.log("$onInit createStoreController: ");
+  }
+
+  onBlur(fld){
+    console.log('Blurred: ' + fld);
   }
   //
 }
@@ -12,22 +18,11 @@ class createStoreController {
 const createStore = {
   controller: createStoreController,
   template: `
-        <p>Form goes here. But before that:
-        </p>
-          <ul>
-            <li>Add an input box to createStore</li>
-            <li>Pass it to parent</li>
-            <li>Write it to local storage</li>
-            <li>Recover from local storage</li>
-            <li>Default panel to local store value</p>
-          </ul>
-          <p>Done</p>
-          <ul>
-            <li>Save structure as template</li>
-            <li>Make child presentation component</li>
-            <li>Make this component a container</li>
-          </ul>
-    `
+        <p>Form goes here.</p>
+        <label for="store">Store name</label>
+        <input  ng-model="store.name" ng-blur="$ctrl.onBlur('Fld1')" type="text" id="store" placeholder="Name of store">
+        <p>Store name: {{store.name}}</p>  
+      `
 };
 
 export default createStore;

@@ -1,10 +1,12 @@
 class pgContainController {
-  constructor() {
-    console.log("constructor pgContainController: ");
+  constructor(DEBUG) {
+    'ngInject';
+    this.DEBUG = DEBUG;
+    if (this.DEBUG) console.log("constructor pgContainController: ");
   }
 
   $onInit() {
-    console.log("$onInit pgContainController: ");
+    if (this.DEBUG) console.log("$onInit pgContainController: ");
   }
   //
 }
@@ -15,6 +17,7 @@ const pgContain = {
         <h2>Create a new information store</h2>
         <hr>
         <create-store></create-store>
+        <proj-plan></proj-plan>
     `
 };
 
